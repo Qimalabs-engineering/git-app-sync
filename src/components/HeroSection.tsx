@@ -26,8 +26,13 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="inline-block mb-8"
           >
-            <span className="px-6 py-3 bg-primary-foreground/10 backdrop-blur-md rounded-full text-primary-foreground text-sm font-medium tracking-wider border border-primary-foreground/20">
-              AXIS HYPNOTHERAPY & PSYCHOTHERAPY ACADEMY
+            <span className="px-4 py-2 md:px-6 md:py-3 bg-primary-foreground/10 backdrop-blur-md rounded-full text-primary-foreground text-xs md:text-sm font-medium tracking-wider border border-primary-foreground/20 block max-w-[90vw]">
+              <span className="block md:hidden text-center leading-relaxed">
+                AXIS HYPNOTHERAPY &<br />PSYCHOTHERAPY ACADEMY
+              </span>
+              <span className="hidden md:block">
+                AXIS HYPNOTHERAPY & PSYCHOTHERAPY ACADEMY
+              </span>
             </span>
           </motion.div>
           
