@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { MapPin, Calendar, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import PhoneModal from "./PhoneModal";
 
 const VenueSection = () => {
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
+  const phoneNumber = "+234 805 280 6352";
+  const address = "Axis Mental Health Services Ltd, 33, Oluwaleimu Street, Off Allen Avenue, Ikeja, Lagos";
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
   return (
     <section className="py-28 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -21,7 +28,12 @@ const VenueSection = () => {
               </h2>
               
               <div className="space-y-8">
-                <div className="flex items-start gap-5">
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-5 hover:opacity-80 transition-opacity"
+                >
                   <div className="p-4 rounded-2xl bg-primary/10 shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
@@ -33,7 +45,7 @@ const VenueSection = () => {
                       Off Allen Avenue, Ikeja, Lagos
                     </p>
                   </div>
-                </div>
+                </a>
                 
                 <div className="flex items-start gap-5">
                   <div className="p-4 rounded-2xl bg-primary/10 shrink-0">
@@ -57,7 +69,7 @@ const VenueSection = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="bg-card rounded-3xl p-10 shadow-2xl border border-border/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                 
                 <div className="relative z-10">
                   <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -67,15 +79,18 @@ const VenueSection = () => {
                     Registration is now open with limited seats available. Secure your spot today.
                   </p>
                   
-                  <div className="flex items-center gap-4 p-5 bg-muted rounded-2xl mb-8">
-                    <div className="p-3 rounded-xl bg-accent/20">
-                      <Phone className="h-5 w-5 text-accent" />
+                  <button
+                    onClick={() => setPhoneModalOpen(true)}
+                    className="flex items-center gap-4 p-5 bg-muted rounded-2xl mb-8 w-full hover:bg-muted/80 transition-colors cursor-pointer"
+                  >
+                    <div className="p-3 rounded-xl bg-primary/20">
+                      <Phone className="h-5 w-5 text-primary" />
                     </div>
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm text-muted-foreground">Call / WhatsApp</p>
-                      <p className="font-bold text-xl text-foreground">+234 805 280 6352</p>
+                      <p className="font-bold text-xl text-foreground">{phoneNumber}</p>
                     </div>
-                  </div>
+                  </button>
                   
                   <Button 
                     size="lg" 
@@ -93,6 +108,12 @@ const VenueSection = () => {
           </div>
         </div>
       </div>
+      
+      <PhoneModal
+        open={phoneModalOpen}
+        onOpenChange={setPhoneModalOpen}
+        phoneNumber={phoneNumber}
+      />
     </section>
   );
 };
