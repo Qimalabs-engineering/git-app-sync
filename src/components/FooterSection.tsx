@@ -41,7 +41,7 @@ const FooterSection = () => {
               </div>
               <div>
                 <p className="text-primary-foreground/60 text-sm">Email</p>
-                <p className="text-primary-foreground font-semibold">info@axismhs.com</p>
+                <p className="text-primary-foreground font-semibold">axismentalhealthservices@gmail.com</p>
               </div>
             </div>
           </div>
