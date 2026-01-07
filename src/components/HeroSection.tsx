@@ -38,8 +38,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-[1.1]"
           >
-            Become a Certified
-            <span className="block mt-3 text-accent drop-shadow-lg">Clinical Hypnotherapist</span>
+            <span className="block text-2xl md:text-3xl lg:text-4xl font-medium mb-2 text-primary-foreground drop-shadow-md">Become a Certified</span>
+            <span className="block text-primary-foreground drop-shadow-lg">Clinical Hypnotherapist</span>
           </motion.h1>
           
           <motion.p 
